@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>My Nurse - Formulario</title>
+  <link rel="stylesheet" href="styles/global.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+  <div class="top-bar">
+    <div class="top-bar-title">My Nurse</div>
+  </div>
+  <div class="container">
+    <div class="question-container">
+
+      <div class="section-title">Cuestionario</div>
+
+      <!--  Saludo -->
+      <div class="question">
+        <label class="question-label"> Nombre: </label>
+        <input class="question-input" id="inpNombre" />
+      </div>
+
+      <!-- Edad -->
+      <div class="question">
+        <label class="question-label" class="question-input"> Año de Nacimento:</label>
+        <input class="question-input" class="question-input" id="inpAño" />
+      </div>
+
+      <!-- Temperatura -->
+      <div class="question">
+        <label class="question-label" class="question-input"> Temperatura: </label>
+        <input class="question-input" class="question-input" id="temp" />
+      </div>
+
+      <!-- peso -->
+      <div class="question">
+        <label class="question-label" class="question-input"> Peso:</label>
+        <input class="question-input" class="question-input" id="peso" />
+      </div>
+
+      <!--preción-->
+      <div class="question">
+        <label class="question-label" class="question-input">Presión:</label>
+        <input class="question-input" class="question-input" id="PA" />
+      </div>
+
+      <!--FC-->
+      <div class="question">
+        <label class="question-label" class="question-input"> Frecuencia Cardiaca (FC): </label>
+        <input class="question-input" class="question-input" id="FC" />
+      </div>
+
+      <!--Ox2-->
+      <div class="question">
+        <label class="question-label" class="question-input"> Ox2: </label>
+        <input class="question-input" class="question-input" id="Ox2" />
+      </div>
+
+      <!--Glucosa-->
+      <div class="question">
+        <label class="question-label" class="question-input"> Glucosa: </label>
+        <input class="question-input" class="question-input" id="A1c" />
+      </div>
+
+      <button class="button-diagnosticar" id="btnDiagnosticar">Diagnosticar</button>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="resultados-container">
+      <div class="section-title">Resultados:</div>
+      <div class="resultado">Nombre:
+        <div class="resultado-text" id="divSaludo">-</div>
+      </div>
+      <div class="resultado">Edad:
+        <div class="resultado-text" id="divAño">-</div>
+      </div>
+      <div class="resultado">Temperatura:
+        <div class="resultado-text" id="divTemp">-</div>
+      </div>
+      <div class="resultado">Peso:
+        <div class="resultado-text" id="divPeso">-</div>
+      </div>
+      <div class="resultado">Presión:
+        <div class="resultado-text" id="divPA">-</div>
+      </div>
+      <div class="resultado">Frecuencia Cardiaca:
+        <div class="resultado-text" id="divFC">-</div>
+      </div>
+      <div class="resultado">Ox2:
+        <div class="resultado-text" id="divOx2">-</div>
+      </div>
+      <div class="resultado">Glucosa:
+        <div class="resultado-text" id="divA1c">-</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Hecho por Emily Cruz Alejo
+  </div>
+
+</body>
+<script>
+
+  // aqui va el codigo de JavaScript
+
+  // suscribirse al evento de click
+  document
+    .getElementById("btnDiagnosticar").addEventListener("click", function () {
+
+      // Saludo
+      let nombre = document.getElementById("inpNombre").value;
+      document.getElementById("divSaludo").innerHTML = nombre;
+
+      // Año
+      let anoNacimiento = document.getElementById("inpAño").value;
+      let edad = 2024 - anoNacimiento;
+      document.getElementById("divAño").innerHTML = + edad + " años (approx.)";
+
+      //Temperatura
+      let temp = document.getElementById("temp").value;
+      if (temp < 35) {
+        document.getElementById("divTemp").innerText = "hipotermia";
+      }
+      else if (temp >= 0 && temp < 36) {
+        document.getElementById("divTemp").innerText = "estas bien (normal)";
+      }
+      else if (temp > 100 && temp < 40) {
+        document.getElementById("divTemp").innerText = "tienes fiebre";
+      }
+      else {
+        document.getElementById("divTemp").innerText = "ve con un profecional";
+      }
+
+      // aqui va el codigo o el texto de el texto de peso
+
+      // aqui va el codigo o el texto de precion
+
+      // aqui va el codigo o el texto de FC
+
+      // aqui va el texto o codigo de Ox2
+
+      //Aqui va el texto o el codigo de glucosa
+    });
+
+</script>
+
+</html>

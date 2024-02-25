@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <!-- Titulo-->
+    <h1>My nurse</h1>
+
+    <!-- Saludo -->
+    <div>
+        <label>Dame tu nombre: </label>
+        <input id="inpNombre">
+    </div>
+    <div>
+        <button id="btnSaludo">Saludame</button>
+    </div>
+    <div id="divSaludo"></div>
+
+    <!-- br es salto de linea, y hr es linea horizontal -->
+    <br>
+    <hr>
+    </hr>
+    <br>
+
+    <!-- Edad -->
+    <div>
+        <label>Dame tu edad: </label>
+        <input id="inpEdad">
+    </div>
+    <div>
+        <button id="btnContinuar">Continuar</button>
+    </div>
+    <div id="divEdad"></div>
+
+    <div>
+
+        <br>
+        <hr>
+        <br>
+
+        <label>Dame tu Año de nacimento: </label>
+        <input id="inpAño">
+    </div>
+    <div>
+        <button id="btnAño">Tu edad es </button>
+
+    </div>
+    <div id="divAño"></div>
+
+
+
+    <!-- Temperatura -->
+    <br>
+    <hr>
+    <br>
+
+
+    <div>
+        <label>Ingresa la temperatura:</label>
+        <input id="temp">
+    </div>
+    <div>
+        <button id="btnTemp"> Calcular </button>
+    </div>
+    Resultado:
+    <div id="divTemp"></div>
+
+    <!-- peso -->
+
+    <br>
+    <hr>
+    <br>
+
+    <div>
+        <label>Ingresa tu peso:</label>
+        <input id="peso">
+    </div>
+    <div>
+        <button id="btnPeso"> Calcular </button>
+    </div>
+    Resultado:
+    <div id="divPeso"></div>
+
+    <!--preción-->
+
+    <br>
+    <hr>
+    <br>
+
+    <div>
+        <label>Ingresa tu precion: </label>
+        <input id="PA">
+    </div>
+    <div>
+        <button id="btnPA"> Calcular </button>
+    </div>
+    <div>
+        Resultado:
+        <div id="divPA"></div>
+    </div>
+
+    <!--FC-->
+
+    <br>
+    <hr>
+    <br>
+
+    <div>
+        <label> Ingresa tu Frecuencia Cardiaca (FC):</label>
+        <input id="FC">
+    </div>
+    <div>
+        <button id="btnFC"> Calcular </button>
+    </div>
+    <div>
+        Resultado:
+        <div id="divFC"></div>
+    </div>
+
+    <!--Ox2-->
+    <br>
+    <hr>
+    <br>
+
+    <div>
+        <label> Ingresa tu Ox2:</label>
+        <input id="Ox2">
+    </div>
+    <div>
+        <button id="btnOx2"> Calcular </button>
+    </div>
+    <div>
+        Resultado:
+        <div id="divOx2"></div>
+    </div>
+
+    <!--Glucosa-->
+
+    <br>
+    <hr>
+    <br>
+
+    <div>
+        <label> Ingresa tu Glucosa: </label>
+        <input id="A1c">
+    </div>
+    <div>
+        <button id="btnA1c"> Calcular </button>
+    </div>
+    <div>
+        Resultado:
+        <div id="divA1c"></div>
+    </div>
+
+
+
+</body>
+<script>
+    // aqui va el codigo de JavaScript
+
+    // suscribirse al evento de click
+    document.getElementById("btnSaludo").addEventListener('click', function () {
+
+        // Para obtener lo que el usuario metio en un cuadro de texto, usar: 
+        let nombre = document.getElementById("inpNombre").value;
+
+        // Imrime a la consola para ayudar al desarrollador.  
+        console.log("Hola ", nombre);
+
+        // agrega texto al elemento 
+        document.getElementById("divSaludo").innerText = "Hola " + nombre;
+    });
+
+
+
+    document.getElementById("btnContinuar").addEventListener('click', function () {
+
+        let edad = document.getElementById("inpEdad").value;
+
+        if (edad > 35) {
+            document.getElementById("divEdad").innerText = "eres un veterano "
+        }
+        else {
+            document.getElementById("divEdad").innerText = "eres un mocoso "
+        }
+
+
+    });
+
+
+    document.getElementById("btnTemp").addEventListener('click', function () {
+
+        let temp = document.getElementById("temp").value;
+
+        if (temp < 35) {
+            document.getElementById("divTemp").innerText = "hipotermia";
+        }
+        else if (temp >= 0 && temp < 36) {
+            document.getElementById("divTemp").innerText = "estas bien (normal)";
+        }
+        else if (temp > 100 && temp < 40) {
+            document.getElementById("divTemp").innerText = "tienes fiebre";
+        }
+        else {
+            document.getElementById("divTemp").innerText = "ve con un profecional";
+        }
+    });
+
+    // aqui va el codigo o el texto de el texto de peso
+
+
+
+
+
+
+    // aqui va el codigo o el texto de precion
+
+
+
+
+    // aqui va el codigo o el texto de FC
+
+
+
+
+
+    // aqui va el texto o codigo de Ox2
+
+
+
+
+    //Aqui va el texto o el codigo de glucosa
+
+
+
+
+</script>
+
+</html>

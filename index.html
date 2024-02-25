@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>My Nurse - Inicio</title>
+  <link rel="stylesheet" href="styles/global.css" />
+  <link rel="stylesheet" href="styles/index.css" />
+</head>
+
+<body>
+  <div class="container">
+    <img id="logo" class="logo" src="images/logo_low.png" />
+  </div>
+</body>
+<script>
+  let nextPage = "main.html";
+  document.getElementById("logo").addEventListener("click", () => {
+    window.location.href = nextPage;
+  });
+</script>
+
+</html>

@@ -1,0 +1,85 @@
+.top-bar {
+  padding: 24px;
+  background-color: dodgerblue;
+}
+
+.top-bar-title {
+  color: azure;
+  font-size: 28px;
+}
+
+.container {
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 32px;
+  max-width: 640px;
+}
+
+.question {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-flow: column;
+}
+
+.question-label {
+  margin-bottom: 6px;
+}
+
+.question-input {
+  padding: 12px;
+  border-radius: 4px;
+  outline: darkgray solid 1px;
+  border: 1px solid darkgray;
+  font-size: 16px;
+}
+
+.question-input:focus {
+  outline: dodgerblue solid 2px;
+}
+
+.button-diagnosticar {
+  padding: 16px;
+  display: block;
+  background-color: dodgerblue;
+  color: azure;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.button-diagnosticar:active {
+  opacity: 80%;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: lighter;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.separator {
+  border-top: 1px solid darkgray;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.resultado {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.resultado-text {
+  font-weight: bold;
+}
+
+.footer {
+  background-color: gray;
+  color: azure;
+  padding: 24px;
+}
