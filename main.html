@@ -21,52 +21,46 @@
       <!--  Saludo -->
       <div class="question">
         <label class="question-label"> Nombre: </label>
-        <input class="question-input" id="inpNombre" />
+        <input class="question-input" id="inpNombre" type="text" />
       </div>
 
       <!-- Edad -->
       <div class="question">
         <label class="question-label" class="question-input"> Año de Nacimento:</label>
-        <input class="question-input" class="question-input" id="inpAño" />
+        <input class="question-input" class="question-input" id="inpAño" type="number" />
       </div>
 
       <!-- Temperatura -->
       <div class="question">
         <label class="question-label" class="question-input"> Temperatura: </label>
-        <input class="question-input" class="question-input" id="temp" />
-      </div>
-
-      <!-- peso -->
-      <div class="question">
-        <label class="question-label" class="question-input"> Peso:</label>
-        <input class="question-input" class="question-input" id="peso" />
+        <input class="question-input" class="question-input" id="temp" type="number" />
       </div>
 
       <!--preción-->
       <div class="question">
         <label class="question-label" class="question-input">Presión:</label>
-        <input class="question-input" class="question-input" id="PA" />
+        <input class="question-input" class="question-input" id="PA" type="text" />
       </div>
 
       <!--FC-->
       <div class="question">
         <label class="question-label" class="question-input"> Frecuencia Cardiaca (FC): </label>
-        <input class="question-input" class="question-input" id="FC" />
+        <input class="question-input" class="question-input" id="FC" type="number" />
       </div>
 
       <!--Ox2-->
       <div class="question">
         <label class="question-label" class="question-input"> Ox2: </label>
-        <input class="question-input" class="question-input" id="Ox2" />
+        <input class="question-input" class="question-input" id="Ox2" type="number" />
       </div>
 
       <!--Glucosa-->
       <div class="question">
         <label class="question-label" class="question-input"> Glucosa: </label>
-        <input class="question-input" class="question-input" id="A1c" />
+        <input class="question-input" class="question-input" id="A1c" type="number" />
       </div>
 
-      <button class="button-diagnosticar" id="btnDiagnosticar">Diagnosticar</button>
+      <button class="boton" id="btnDiagnosticar">Diagnosticar</button>
     </div>
 
     <div class="separator"></div>
@@ -82,9 +76,6 @@
       <div class="resultado">Temperatura:
         <div class="resultado-text" id="divTemp">-</div>
       </div>
-      <div class="resultado">Peso:
-        <div class="resultado-text" id="divPeso">-</div>
-      </div>
       <div class="resultado">Presión:
         <div class="resultado-text" id="divPA">-</div>
       </div>
@@ -98,6 +89,8 @@
         <div class="resultado-text" id="divA1c">-</div>
       </div>
     </div>
+
+    <button class="boton" id="btnReset">Reiniciar</button>
   </div>
 
   <div class="footer">
@@ -110,43 +103,103 @@
   // aqui va el codigo de JavaScript
 
   // suscribirse al evento de click
-  document
-    .getElementById("btnDiagnosticar").addEventListener("click", function () {
+  document.getElementById("btnDiagnosticar").addEventListener("click", function () {
 
-      // Saludo
-      let nombre = document.getElementById("inpNombre").value;
+    // Saludo
+    let nombre = document.getElementById("inpNombre").value;
+    if (nombre) {
       document.getElementById("divSaludo").innerHTML = nombre;
+    } else {
+      document.getElementById("divSaludo").innerHTML = "Desconocido"
+    }
+    // Año
+    let anoNacimiento = document.getElementById("inpAño").value;
+    let edad = 2024 - anoNacimiento;
+    if (!!anoNacimiento) {
+      document.getElementById("divAño").innerHTML = edad + " años (o por cumplir)";
+    } else {
+      document.getElementById("divAño").innerHTML = "Valor no válido";
+    }
 
-      // Año
-      let anoNacimiento = document.getElementById("inpAño").value;
-      let edad = 2024 - anoNacimiento;
-      document.getElementById("divAño").innerHTML = + edad + " años (approx.)";
+    //Temperatura
+    let temp = document.getElementById("temp").value;
+    if (temp < 35) {
+      document.getElementById("divTemp").innerText = "hipotermia";
+    }
+    else if (temp >= 0 && temp < 36) {
+      document.getElementById("divTemp").innerText = "estas bien (normal)";
+    }
+    else if (temp > 100 && temp < 40) {
+      document.getElementById("divTemp").innerText = "tienes fiebre";
+    }
+    else {
+      document.getElementById("divTemp").innerText = "ve con un profecional";
+    }
 
-      //Temperatura
-      let temp = document.getElementById("temp").value;
-      if (temp < 35) {
-        document.getElementById("divTemp").innerText = "hipotermia";
-      }
-      else if (temp >= 0 && temp < 36) {
-        document.getElementById("divTemp").innerText = "estas bien (normal)";
-      }
-      else if (temp > 100 && temp < 40) {
-        document.getElementById("divTemp").innerText = "tienes fiebre";
-      }
-      else {
-        document.getElementById("divTemp").innerText = "ve con un profecional";
-      }
+    // aqui va el codigo o el texto de precion
+    let presion = document.getElementById("PA").value;
+    let sistolica = +(presion.split("/")[0]);
+    if (0 < sistolica && sistolica < 80) {
+      document.getElementById("divPA").innerText = "Hipotension";
+    }
+    else if (80 <= sistolica && sistolica < 130) {
+      document.getElementById("divPA").innerText = "Normal";
+    }
+    else if (130 <= sistolica && sistolica < 140) {
+      document.getElementById("divPA").innerText = "Hipertension 1";
+    }
+    else if (140 <= sistolica && sistolica < 160) {
+      document.getElementById("divPA").innerText = "Hipertension 2";
+    }
+    else if (160 <= sistolica) {
+      document.getElementById("divPA").innerText = "Crisis Hipertensiva";
+    }
+    else {
+      document.getElementById("divPA").innerText = "Valor no válido";
+    }
 
-      // aqui va el codigo o el texto de el texto de peso
+    // aqui va el codigo o el texto de FC
+    let fc = document.getElementById("FC").value;
+    if (0 < fc && fc < 60) {
+      document.getElementById("divFC").innerText = "Bradicarida";
+    } else if (60 <= fc && fc < 100) {
+      document.getElementById("divFC").innerText = "Normal";
+    } else if (100 <= fc && fc <= 150) {
+      document.getElementById("divFC").innerText = "Taquicardia (Busque ayuda)";
+    } else {
+      document.getElementById("divFC").innerText = "Valor no válido";
+    }
 
-      // aqui va el codigo o el texto de precion
+    // aqui va el texto o codigo de Ox2
+    let ox2 = document.getElementById("Ox2").value;
+    if (0 < ox2 && ox2 < 85) {
+      document.getElementById("divOx2").innerText = "Hipoxia";
+    } else if (85 <= ox2 && ox2 < 90) {
+      document.getElementById("divOx2").innerText = "Levemente disminuido";
+    } else if (90 <= ox2 && ox2 <= 99) {
+      document.getElementById("divOx2").innerText = "Normal";
+    } else {
+      document.getElementById("divOx2").innerText = "Valor no válido";
+    }
 
-      // aqui va el codigo o el texto de FC
+    // aqui va el texto o el codigo de glucosa
+    let glucosa = document.getElementById("A1c").value;
+    if (0 < glucosa && glucosa < 70) {
+      document.getElementById("divA1c").innerText = "HipoGlucemia";
+    } else if (70 <= glucosa && glucosa < 140) {
+      document.getElementById("divA1c").innerText = "Normoglicemia";
+    } else if (140 <= glucosa && glucosa < 200) {
+      document.getElementById("divA1c").innerText = "Sospecha de diabetes";
+    } else if (200 <= glucosa) {
+      document.getElementById("divA1c").innerText = "Consultar un profesional"
+    } else {
+      document.getElementById("divA1c").innerText = "Valor no válido";
+    }
+  });
 
-      // aqui va el texto o codigo de Ox2
-
-      //Aqui va el texto o el codigo de glucosa
-    });
+  document.getElementById("btnReset").addEventListener('click', function () {
+    setTimeout(() => window.location.href = "main.html", 0);
+  });
 
 </script>
 
