@@ -11,11 +11,12 @@
 
 <body>
   <div class="top-bar">
-    <div class="top-bar-title">My Nurse</div>
+    <a href="index.html" style="text-decoration: none;">
+      <div class="top-bar-title"> My Nurse</div>
+    </a>
   </div>
   <div class="container">
-    <div class="question-container">
-
+    <form id="question-form" class="question-container">
       <div class="section-title">Cuestionario</div>
 
       <!--  Saludo -->
@@ -60,8 +61,8 @@
         <input class="question-input" class="question-input" id="A1c" type="number" />
       </div>
 
-      <button class="boton" id="btnDiagnosticar">Diagnosticar</button>
-    </div>
+      <button type="submit" class="boton" id="btnDiagnosticar">Diagnosticar</button>
+    </form>
 
     <div class="separator"></div>
 
@@ -103,7 +104,8 @@
   // aqui va el codigo de JavaScript
 
   // suscribirse al evento de click
-  document.getElementById("btnDiagnosticar").addEventListener("click", function () {
+  document.getElementById("question-form").addEventListener("submit", function (ev) {
+    ev.preventDefault();
 
     // Saludo
     let nombre = document.getElementById("inpNombre").value;
@@ -123,17 +125,19 @@
 
     //Temperatura
     let temp = document.getElementById("temp").value;
-    if (temp < 35) {
+    if (0 < temp && temp < 35) {
       document.getElementById("divTemp").innerText = "hipotermia";
     }
-    else if (temp >= 0 && temp < 36) {
+    else if (temp >= 35 && temp < 37.5) {
       document.getElementById("divTemp").innerText = "estas bien (normal)";
     }
-    else if (temp > 100 && temp < 40) {
-      document.getElementById("divTemp").innerText = "tienes fiebre";
+    else if (temp >= 37.5 && temp < 38) {
+      document.getElementById("divTemp").innerText = "tienes fibricula";
     }
-    else {
-      document.getElementById("divTemp").innerText = "ve con un profecional";
+    else if (temp > 38) {
+      document.getElementById("divTemp").innerText = "ve con un profesional";
+    } else {
+      document.getElementById("divTemp").innerText = "Valor no válido";
     }
 
     // aqui va el codigo o el texto de precion
